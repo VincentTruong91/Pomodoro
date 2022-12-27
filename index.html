@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pomodoro</title>
+    <link href="style.css" rel="stylesheet" />
+    <!-- Used the Google font API-->
+    <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=DM+Serif+Display&display=swap" rel="stylesheet">
+
+    <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=DM+Serif+Display&family=Monoton&display=swap" rel="stylesheet">
+
+
+    <!--Bootstrap package of icons relating to social medias-->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
+    <!-- Icon of the Tab-->
+    <link rel="icon" href="./images/tomato_tab_sketch.png">
+</head>
+<body>
+    <nav class="navigation-bar">
+        <img class="nav-pomodoro-img" src="./images/pomodoro_sketch.png" onclick="window.location.href = window.location.href">
+        <a href="#home">HOME</a>
+        <a href="#pomo-a">ABOUT</a>
+        <a href="#pomo-v">VIDEO ILLUSTRATION</a>
+        <a href="#pomo-i">INSTRUCTIONS</a>
+    </nav>
+    <div class="pomodoro-content" id="home">
+        
+        <p id="timer">25:00</p>
+
+        <!-- Create an input element for the user to enter the time in minutes -->
+        <label for="timeInput">Enter time in minutes:</label><br>
+        <input type="text" id="timeInput" value="25"><br>
+
+        <div class="pomodoro-buttons">
+            <!-- Create a button to start the timer -->
+            <button id="startButton" onclick="startTimer()">Start Timer</button>
+
+        <!-- Create a button to reset the timer -->
+            <button id="resetButton" onclick="resetTimer()">Reset Timer</button>
+        </div>
+    </div>
+
+
+    <div class="todo-content">
+        <div class="task-list-header">
+            <img src="./images/tomato_tab_sketch.png" alt="image">
+            <p id="task-list-title">Task List</p>
+            <img src="./images/tomato_tab_sketch.png" alt="image">
+        </div>
+        <!-- Create an input element for the user to enter a new todo item -->
+        <input type="text" id="todoInput" placeholder="Enter Task Here...">
+
+        <!-- Create a button to add the item to the list -->
+        <button id="addButton" onclick="addTodo()">Add</button>
+
+        <!-- Create an unordered list to hold the todo items -->
+        <ul id="todoList">
+            <li class="todo-item">
+            </li>
+        </ul>
+    </div>
+
+    <div class="pomodoro-about" id="pomo-a">
+        
+        <div class="pomo-about-header">
+            <img class="question_tomoato" src="./images/questioning_tomato.png">
+            <p id="pomo-about-question">What is Pomodoro?</p>
+        </div>
+        <div class="about-1">
+            <p>Pomodoro is a <span class="red-text">technique</span> that incorporate time management as its method, which is developed by <span class="red-text">Francesco Cirillo</span> in the late 1980s.</p>
+            <img class="f_c_sketch abt-photo" src="./images/francesco_cirillo_sketch.png">
+        </div>
+        <div class="about-2">
+            <p>The technique uses a timer to break down work into <span class="red-text">intervals</span>, traditionally 25 minutes in length, separated by short breaks. These intervals are known as "pomodoros". </p>
+            <img class="tomoato_clock abt-photo" src="./images/pomodoro_tomato_vis_arrows.png">
+        </div>
+        <div class="about-3">
+            <p> The goal is to use the time intervals to <span class="red-text">increase productivity</span> and <span class="red-text">reduce procrastination</span>. </p>
+            <img class="productive_tomato abt-photo" src="./images/productivity_tomato.png">
+        <img class="procrastionate_tomato abt-photo" src="./images/procrastionation_tomato.png">
+        </div>
+        <div class="about-4">
+            <p>The Pomodoro Technique can help you <span class="red-text">stay focused</span> and <span class="red-text">avoid burnout</span> by breaking your work into manageable chunks and giving you regular breaks to rest and recharge. It can also help you track your time and see how much progress you're making on a given task.</p>
+            <img class="focus_tomato abt-photo" src="./images/focused_tomato.png">
+        <img class="burnt_tomato abt-photo" src="./images/burnout_tomato.png">
+        </div>
+
+    </div>
+    
+    <div class="pomodoro-video" id="pomo-v">
+        <p>Video Illustration</p>
+        <div id="player"></div>
+        <script>
+            // 2. This code loads the IFrame Player API code asynchronously.
+            var tag = document.createElement('script');
+    
+            tag.src = "https://www.youtube.com/iframe_api";
+            var firstScriptTag = document.getElementsByTagName('script')[0];
+            firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+    
+            // 3. This function creates an <iframe> (and YouTube player)
+            //    after the API code downloads.
+            var player;
+            function onYouTubeIframeAPIReady() {
+            player = new YT.Player('player', {
+                height: '390',
+                width: '640',
+                videoId: 'RXsZU-je7Sk',
+                playerVars: {
+                'playsinline': 1
+                },
+                events: {
+                'onReady': onPlayerReady,
+                'onStateChange': onPlayerStateChange
+                }
+            });
+            }
+    
+            // 4. The API will call this function when the video player is ready.
+            function onPlayerReady(event) {
+            event.target.playVideo();
+            }
+    
+            // 5. The API calls this function when the player's state changes.
+            //    The function indicates that when playing a video (state=1),
+            //    the player should play for six seconds and then stop.
+            var done = false;
+            function onPlayerStateChange(event) {
+            if (event.data == YT.PlayerState.PLAYING && !done) {
+                setTimeout(stopVideo, 6000);
+                done = true;
+            }
+            }
+            function stopVideo() {
+            player.stopVideo();
+            }
+        </script>
+
+    </div>
+
+
+    <div class="pomodoro-instructions" id="pomo-i">
+        <p class="pomo-instruction-header">Extra Instructions</p>
+        <p>Choose a task to work on.</p>
+        <p>Set the Pomodoro timer to <span class="red-text">25 minutes</span>.</p>
+        <p>Click the start time button and work on the task until the timer goes off.</p>
+        <p>Take a short break (typically <span class="red-text">5 minutes</span>).</p>
+        <p>Every <span class="red-text">four "pomodoros"</span>, take a <span class="red-text">longer break (typically 15-30 minutes)</span>.</p>
+        <img class="4_p_sketch" src="./images/4_pomodoros.png">
+    </div>
+
+    <footer>
+        <div>
+            <h3>Vincent Truong</h3>
+            <p>Thank you so much for checking out my Pomodoro Website! It's by far a project that I've incorporate and use into my studying habits. I hope this website is useful to everyone as well!</p>
+        </div>
+        <ul class="socials">
+            <li><a href="https://github.com/VincentTruong91"><i class="fa fa-github"></i></a></li>
+            <li><a href="https://www.youtube.com/channel/UCwN7J6ud7RCzgibHn-h_3sg"><i class="fa fa-youtube"></i></a></li>
+            <li><a href="https://www.linkedin.com/in/vincent-truong-885b7a234/"><i class="fa fa-linkedin-square"></i></a></li>
+        </ul>
+        <p>© 2022 Designed & Developed by <span>Vincent Truong</span></p>
+        
+    </footer>
+
+    <!-- Audio Tag for the start timer button -->
+    <audio id="startSound" src="./sounds/computermouse.mp3"></audio>
+    <!-- connects the html to the javascript script -->
+    <script src="./app.js"></script>
+</body>
+</html>

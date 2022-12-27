@@ -1,0 +1,257 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'Abril Fatface', cursive;
+    font-family: 'DM Serif Display', serif;
+}
+
+html{
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    scroll-behavior: smooth;
+}
+
+
+body{
+    height: 100%;
+    width: 100%;
+    padding: 0 0 0 0;
+    text-align: center;
+    font-size: 2vw;
+    background-color: rgb(32, 27, 27);
+    color: white;
+    margin-top: 5vw;
+}
+
+nav{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgb(26, 24, 24);
+    position: fixed;
+    width: 100%;
+    height: 5vw;
+    overflow: hidden;
+    top:0;
+  }
+  
+nav img {
+    height: 4vw;
+    margin: 10px;
+}
+  
+nav a {
+    text-decoration: none;
+    color: white;
+    margin: 0 10px;
+    margin-right: 5%;
+}
+  
+nav a:hover, nav img:hover{/*Navigation Hover effect*/
+    color: rgb(101, 179, 101);
+    font-family: 'Abril Fatface', cursive;
+    font-family: 'DM Serif Display', serif;
+    font-family: 'Monoton', cursive;
+    cursor: pointer;
+}
+
+.pomodoro-content{ /* Encompases from the timer (00:00) to the reset timer button */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.todo-content{ /* Encompases from the Task List title to the list of added elements */
+    margin: 20px 0 0 0;
+}
+
+.task-list-header{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center; /*left to middle of screen*/
+}
+
+.task-list-header img{
+    width: 4vw;
+    padding: 1vw;
+}
+
+#todoInput{ /* TaskList Input Box */
+    width: 20%;
+    padding: 12px 20px;
+}
+
+.todo-content #todo-list .todo-item{
+    margin: 100px 0;
+}
+
+#timer{ 
+    padding: 20px;
+    font-size: 15vw; /* Timer Size */
+    color: rgb(151, 121, 121);
+    font-family: 'Abril Fatface', cursive;
+    font-family: 'DM Serif Display', serif;
+    font-family: 'Monoton', cursive;
+    
+}
+
+button{ /* Original state of Red Buttons */
+    background-color: #ec6969; /* Pastel Red */
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    cursor:pointer;
+}
+
+button:hover{ /* Hover effect of Red Buttons */
+    background-color: #e08b8b;
+    color: #ffffff; /* lighter-red */
+    transition: color .5s ease, background-color .5s ease;
+    border: 1px solid #ec6969;
+}
+
+p{ /* TaskList Title */
+    font-size: 5vw;
+}
+label{ /* Enter time in minutes: Title */
+    font-size: 5vw;
+}
+#timeInput{
+    width: 20%;
+    padding: 12px 20px;
+    font-size: large;
+}
+
+li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.pomodoro-about{
+    margin-top: 2%;
+}
+.pomodoro-about p{
+    font-size: 2vw;
+    margin-bottom: 5px;
+}
+
+.pomodoro-about .red-text, .pomodoro-instructions .red-text{
+    color:#ec6969;
+    font-family: 'Abril Fatface', cursive;
+    font-family: 'DM Serif Display', serif;
+    font-family: 'Monoton', cursive;
+    padding: 0.3vw;
+}
+
+.pomo-about-header{
+    display:flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.pomo-about-header #pomo-about-question{
+    font-size: 6vw;
+    color:rgb(212, 107, 107);
+    padding-top: 1vw;
+    font-family: 'Abril Fatface', cursive;
+    font-family: 'DM Serif Display', serif;
+    font-family: 'Monoton', cursive;
+}
+
+.pomo-about-header img{
+    width: 10vw;
+}
+
+
+.pomodoro-video p{
+    font-size: 6vw;
+    color:rgb(212, 107, 107);
+    padding-top: 1vw;
+    font-family: 'Abril Fatface', cursive;
+    font-family: 'DM Serif Display', serif;
+    font-family: 'Monoton', cursive;
+}
+.pomodoro-video iframe{
+    width: 60vw;
+    height: 40vw;
+}
+
+
+.pomodoro-instructions .pomo-instruction-header{
+    font-size: 6vw;
+    color:rgb(212, 107, 107);
+    padding-top: 1vw;
+    font-family: 'Abril Fatface', cursive;
+    font-family: 'DM Serif Display', serif;
+    font-family: 'Monoton', cursive;
+}
+
+.pomodoro-instructions p{
+    font-size: 2vw;
+    margin-bottom: 5px;
+}
+
+
+.pomodoro-content, .pomodoro-about, .pomodoro-video, .pomodoro-instructions{
+    padding-top:5vw;
+}
+
+.pomodoro-about .abt-photo{
+    width: 10vw;
+}
+
+.pomodoro-instructions img{
+    width: 60vw;
+}
+
+footer{
+    margin-top: 5vw;
+    background-color: #ec6969;
+}
+
+footer h3{
+    font-size: 1.8rem;
+    font-weight: 400;
+    line-height: 3rem;
+    padding-top: 3rem;
+    font-family: 'Abril Fatface', cursive;
+    font-family: 'DM Serif Display', serif;
+    font-family: 'Monoton', cursive;
+}
+
+footer ul{
+    display: flex;
+    align-items: center; /* align icons to itself */
+    justify-content: center; /*align the icons in the center of the screen */
+}
+footer p{
+    padding: 10px;
+    background-color: #ec6969;
+    font-size: 1rem;
+    margin: 1rem 0 2rem 0;
+}
+
+.socials li{
+    margin: 0 10px;
+}
+
+.socials a i{
+    font-size: 1.5rem;
+    color:azure;
+}
+
+.socials a:hover i{
+    color: rgb(101, 179, 101);
+}
+
+footer span{
+    color:azure;
+    font-family: 'Abril Fatface', cursive;
+    font-family: 'DM Serif Display', serif;
+    font-family: 'Monoton', cursive;
+}
